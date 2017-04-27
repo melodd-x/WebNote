@@ -13,48 +13,50 @@
 <script>
 import Vbutton from './Vbutton'
 import Vnoteitem from './Vnote-item'
+
 export default {
-  name: 'Vnotelist',
-  components: {
-    Vbutton,
-    Vnoteitem
-  },
-  computed:{
-      getNotes(){
-          
-          return this.$store.state.notes
-      }
-  },
-  methods:{
-      addNote(){
+    name: 'Vnotelist',
+    components: {
+        Vbutton,
+        Vnoteitem
+    },
+    computed: {
+        getNotes() {
 
-        var min = 1;
-        var max = 1000000;
-        var num = Math.random()*(max-min)+min;
-        num = Math.round(num);
+            return this.$store.state.notes;
 
-        if (this.$store.state.note.title) {
-        //   需要触发一个mutatuons执行,必须使用commit方法
-            this.$store.commit('addNote',{
-                id:num,
-                title:this.$store.state.note.title,
-                date:new Date().toLocaleString(),
-                markdown:this.$store.state.note.markdown
-            })
-            console.log(this.$store.state.note);
-
-        }else {
-            alert("没有笔记可以添加");
         }
+    },
+    methods: {
+        addNote() {
+
+            var min = 1;
+            var max = 1000000;
+            var num = Math.random() * (max - min) + min;
+            num = Math.round(num);
+
+            if (this.$store.state.note.title) {
+                //   需要触发一个mutatuons执行,必须使用commit方法
+                this.$store.commit('addNote', {
+                    id: num,
+                    title: this.$store.state.note.title,
+                    date: new Date().toLocaleString(),
+                    markdown: this.$store.state.note.markdown
+                })
+                // console.log(this.$store.state.note);
+
+            } else {
+                alert("没有笔记可以添加");
+            }
 
 
-      }
-  },
-  data() {
-    return {
+        }
+    },
+    data() {
+        return {
 
+        }
     }
-  }
 }
 </script>
 
