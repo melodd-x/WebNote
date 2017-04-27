@@ -21,6 +21,7 @@ export default {
   },
   computed:{
       getNotes(){
+          
           return this.$store.state.notes
       }
   },

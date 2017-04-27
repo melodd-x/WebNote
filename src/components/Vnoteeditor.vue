@@ -6,14 +6,15 @@
             <hr />
             <div class="marked">
                 <div class="title">
-                    <input id="titleVlaue" type="text" placeholder="请输入文章标题" :value="titleText">
+                    <input id="titleVlaue" type="text" placeholder="请输入文章标题" v-model="titleText">
                 </div>
                 <div class="editor">
-                    <textarea id="markdownVlaue" name="name" rows="8" cols="8" v-model="text"></textarea>
+                    <textarea id="markdownVlaue" name="name" rows="8" cols="8" v-model="content"></textarea>
                 </div>
                 <div id="screenHtml" class="screen" v-html="domarked"></div>
             </div>
-
+            <div style="display:none">{{text}}</div>
+            <div style="display:none">{{text2}}</div>
         </div>
     </div>
 </template>
@@ -26,7 +27,8 @@ export default {
   name: 'Vnoteedit',
   data() {
     return {
-
+        titleText:'',
+        content:''
     }
   },
   methods: {
@@ -56,16 +58,27 @@ export default {
   },
   computed: {
     //获取note里面的markdown
+    // text(){
+    //
+    //     return this.$store.state.note.markdown;
+    // },
     text(){
-        return this.$store.state.note.markdown;
+            this.content = this.$store.state.note.markdown
+            return this.$store.state.note.markdown;
     },
     // 获取note里面的title
-    titleText(){
-        return this.$store.state.note.title;
+    // titleText(){
+    //     return this.$store.state.note.title;
+    // },
+
+    text2(){
+            this.titleText = this.$store.state.note.title
+            return this.$store.state.note.title;
     },
+
     //screen获取markdownVlaue里面的text
     domarked() {
-      return marked(this.text);
+      return marked(this.content);
     }
   },
   components: {
