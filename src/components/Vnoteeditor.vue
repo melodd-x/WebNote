@@ -11,9 +11,7 @@
                 <div class="editor">
                     <textarea id="markdownVlaue" name="name" rows="8" cols="8" v-model="text"></textarea>
                 </div>
-                <div id="screenHtml" class="screen" v-html="domarked">
-                    {{domarked}}
-                </div>
+                <div id="screenHtml" class="screen" v-html="domarked"></div>
             </div>
 
         </div>
@@ -28,13 +26,16 @@ export default {
   name: 'Vnoteedit',
   data() {
     return {
-        // text:''
+
     }
   },
   methods: {
     saveNote() {
+        //获取titile
       var titleVlaue = document.getElementById('titleVlaue').value;
+    //   获取完整编译过的文本
       var screenHtml = document.getElementById('screenHtml').innerHTML;
+    //   获取markdown.md
       var markdownVlaue = document.getElementById('markdownVlaue').value;
 
       // console.log(titleVlaue);
@@ -44,7 +45,7 @@ export default {
         // 将note保存到全局的note里
         this.$store.commit('saveNote', {
           title: titleVlaue,
-          content: screenHtml
+          markdown:markdownVlaue
         })
         alert("保存成功");
       } else {
@@ -108,6 +109,7 @@ input::-webkit-input-placeholder{
     padding: 10px;
     background-color: rgba(140, 214, 143, 0.1);
     border-radius: 0 0 5px 0;
+    word-wrap: break-word;
 }
 textarea{
     padding: 10px;

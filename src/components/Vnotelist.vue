@@ -38,9 +38,10 @@ export default {
                 id:num,
                 title:this.$store.state.note.title,
                 date:new Date().toLocaleString(),
-                content:this.$store.state.note.content
+                markdown:this.$store.state.note.markdown
             })
-            
+            console.log(this.$store.state.note);
+
         }else {
             alert("没有笔记可以添加");
         }

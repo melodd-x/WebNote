@@ -30,7 +30,7 @@ const store = new Vuex.Store({
         //把note添加到notes中
         addNote(state,note){
             state.notes.push(note);
-
+            
             state.note.id = '';
             state.note.title = '';
             state.note.date = '';
@@ -48,7 +48,7 @@ const store = new Vuex.Store({
         saveNote(state,note){
             state.note = note;
             // console.log("笔记保存到了全局的note里了");
-            // console.log(state.note);
+            console.log(state.note);
         }
     }
 })
