@@ -28,7 +28,7 @@ export default {
   name: 'Vnoteedit',
   data() {
     return {
-        text:''
+        // text:''
     }
   },
   methods: {
@@ -55,9 +55,9 @@ export default {
   },
   computed: {
     //获取note里面的markdown
-    // text(){
-    //     return this.$store.state.note.markdown;
-    // },
+    text(){
+        return this.$store.state.note.markdown;
+    },
     // 获取note里面的title
     titleText(){
         return this.$store.state.note.title;
