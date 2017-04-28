@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import qs from 'qs'
 
 // 1.引入,开启状态管理
 import Vuex from 'vuex'
@@ -39,19 +40,54 @@ const store = new Vuex.Store({
         //把note添加到notes中
         addNote(state, note) {
 
-
             // axios.post('http://127.0.0.1:3100/api/comments', {
-            //     data:note
+            //     note
+            // }, {
+            //     headers: {
+            //         'Content-Type': 'application/x-www-form-urlencoded'
+            //     }
             // }).then(function(response) {
-            //     console.log("post:"+response);
-            //     // state.notes.push(note);
+            //     console.log(response.data);
             // }).catch(function(error) {
             //     console.log(error);
             // });
 
+            axios({
+                method: 'post',
+                url: 'http://127.0.0.1:3100/api/comments',
+                data: {
+                    id: note.id,
+                    title: note.title,
+                    date: note.date,
+                    content: note.content,
+                    markdown: note.markdown
+                },
+                transformRequest: [function(data) {
+                        // Do whatever you want to transform the data
+                        let ret = ''
+                        for (let it in data) {
+                            ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+                        }
+                        return ret
+                    }
+                ],
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            // var param = new FormData();
+            // param.append('id',note.id);
+            //
+            // var config = {
+            //     headers: {
+            //         'Content-Type': 'application/x-www-form-urlencoded'
+            //     }
+            // };
+            //
+            // axios.post('http://127.0.0.1:3100/api/comments',param,config);
 
             state.notes.push(note);
-
 
             // 添加上笔记后,清空书写区域
             state.note.id = '';
