@@ -4,7 +4,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-import qs from 'qs'
 
 // 1.引入,开启状态管理
 import Vuex from 'vuex'
@@ -54,7 +53,7 @@ const store = new Vuex.Store({
 
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:3100/api/comments',
+                url: 'http://127.0.0.1:7428/api/comments',
                 data: {
                     id: note.id,
                     title: note.title,
@@ -70,10 +69,10 @@ const store = new Vuex.Store({
                         }
                         return ret
                     }
-                ],
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
+                ]
+                // headers: {
+                //     'Content-Type': 'application/x-www-form-urlencoded'
+                // }
             });
 
             // var param = new FormData();

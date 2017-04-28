@@ -65,7 +65,8 @@ export default {
         }
     },
     mounted() {
-        axios.get('http://127.0.0.1:3100/api/comments')
+
+        axios.get('http://127.0.0.1:7428/api/comments')
             .then(function(response) {
                 console.log(response.data);
                 this.$store.state.notes = response.data;
