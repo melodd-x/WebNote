@@ -53,7 +53,7 @@ const store = new Vuex.Store({
 
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:7428/api/comments',
+                url: 'http://127.0.0.1:7502/users/adddata',
                 data: {
                     id: note.id,
                     title: note.title,
