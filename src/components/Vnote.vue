@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title ">继续vue的及时应用</h3>
+                    <h3 class="panel-title ">WebNote</h3>
                   </div>
                   <div class="panel-body">
                     <div class="row">

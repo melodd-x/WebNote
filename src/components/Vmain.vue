@@ -5,13 +5,14 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">我的一个练习作品</h3>
+                    <h3 class="panel-title">一款在线写笔记的webapp</h3>
                   </div>
                   <div class="panel-body">
-                    <p>这是一个Vue组件化制作的笔记webapp</p>
+                    <p>笔记默认使用markdown语法书写</p>
                     <h3>作品特点</h3>
                     <ul>
-                        <li></li>
+                        <li>实时预览</li>
+                        <li>立即存储</li>
                     </ul>
                   </div>
                 </div>
